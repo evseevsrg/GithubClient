@@ -9,12 +9,16 @@
 /* Begin PBXBuildFile section */
 		8CBFB07A1AD075B900D7B604 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CBFB0791AD075B900D7B604 /* main.m */; };
 		8CBFB07D1AD075B900D7B604 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CBFB07C1AD075B900D7B604 /* AppDelegate.m */; };
-		8CBFB0801AD075B900D7B604 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CBFB07F1AD075B900D7B604 /* ViewController.m */; };
+		8CBFB0801AD075B900D7B604 /* SEMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CBFB07F1AD075B900D7B604 /* SEMainViewController.m */; };
 		8CBFB0831AD075B900D7B604 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CBFB0811AD075B900D7B604 /* Main.storyboard */; };
 		8CBFB0851AD075B900D7B604 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CBFB0841AD075B900D7B604 /* Images.xcassets */; };
 		8CBFB0881AD075BA00D7B604 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CBFB0861AD075BA00D7B604 /* LaunchScreen.xib */; };
 		8CBFB0941AD075BA00D7B604 /* GithubClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CBFB0931AD075BA00D7B604 /* GithubClientTests.m */; };
 		8CBFB0A11AD079D100D7B604 /* SENavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CBFB0A01AD079D100D7B604 /* SENavigationController.m */; };
+		8CBFB0A71AD07C9D00D7B604 /* SEServiceLocator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CBFB0A61AD07C9D00D7B604 /* SEServiceLocator.m */; };
+		8CBFB0B01AD07F7D00D7B604 /* SEGithubManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CBFB0AF1AD07F7D00D7B604 /* SEGithubManager.m */; };
+		8CBFB0B41AD081FB00D7B604 /* SEBaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CBFB0B31AD081FB00D7B604 /* SEBaseManager.m */; };
+		8CBFB0BE1AD0878D00D7B604 /* SEBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CBFB0BD1AD0878D00D7B604 /* SEBaseViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,16 +37,28 @@
 		8CBFB0791AD075B900D7B604 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8CBFB07B1AD075B900D7B604 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8CBFB07C1AD075B900D7B604 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		8CBFB07E1AD075B900D7B604 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		8CBFB07F1AD075B900D7B604 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		8CBFB07E1AD075B900D7B604 /* SEMainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SEMainViewController.h; path = ../../../SEMainViewController.h; sourceTree = "<group>"; };
+		8CBFB07F1AD075B900D7B604 /* SEMainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SEMainViewController.m; path = ../../../SEMainViewController.m; sourceTree = "<group>"; };
 		8CBFB0821AD075B900D7B604 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8CBFB0841AD075B900D7B604 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8CBFB0871AD075BA00D7B604 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		8CBFB08D1AD075BA00D7B604 /* GithubClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GithubClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CBFB0921AD075BA00D7B604 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8CBFB0931AD075BA00D7B604 /* GithubClientTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GithubClientTests.m; sourceTree = "<group>"; };
-		8CBFB09F1AD079D100D7B604 /* SENavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SENavigationController.h; sourceTree = "<group>"; };
-		8CBFB0A01AD079D100D7B604 /* SENavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SENavigationController.m; sourceTree = "<group>"; };
+		8CBFB09F1AD079D100D7B604 /* SENavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SENavigationController.h; path = ../SENavigationController.h; sourceTree = "<group>"; };
+		8CBFB0A01AD079D100D7B604 /* SENavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SENavigationController.m; path = ../SENavigationController.m; sourceTree = "<group>"; };
+		8CBFB0A31AD07BF700D7B604 /* SEServiceLocatorProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEServiceLocatorProtocol.h; sourceTree = "<group>"; };
+		8CBFB0A51AD07C9D00D7B604 /* SEServiceLocator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEServiceLocator.h; sourceTree = "<group>"; };
+		8CBFB0A61AD07C9D00D7B604 /* SEServiceLocator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEServiceLocator.m; sourceTree = "<group>"; };
+		8CBFB0A81AD07E0E00D7B604 /* SEGithubManagerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEGithubManagerProtocol.h; sourceTree = "<group>"; };
+		8CBFB0AE1AD07F7D00D7B604 /* SEGithubManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEGithubManager.h; sourceTree = "<group>"; };
+		8CBFB0AF1AD07F7D00D7B604 /* SEGithubManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEGithubManager.m; sourceTree = "<group>"; };
+		8CBFB0B21AD081FB00D7B604 /* SEBaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEBaseManager.h; sourceTree = "<group>"; };
+		8CBFB0B31AD081FB00D7B604 /* SEBaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEBaseManager.m; sourceTree = "<group>"; };
+		8CBFB0B91AD0854800D7B604 /* SESegueID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESegueID.h; sourceTree = "<group>"; };
+		8CBFB0BA1AD085EA00D7B604 /* SEBaseViewControllerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEBaseViewControllerProtocol.h; sourceTree = "<group>"; };
+		8CBFB0BC1AD0878D00D7B604 /* SEBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEBaseViewController.h; sourceTree = "<group>"; };
+		8CBFB0BD1AD0878D00D7B604 /* SEBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEBaseViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,8 +103,6 @@
 				8CBFB09D1AD079A700D7B604 /* Shared */,
 				8CBFB07B1AD075B900D7B604 /* AppDelegate.h */,
 				8CBFB07C1AD075B900D7B604 /* AppDelegate.m */,
-				8CBFB07E1AD075B900D7B604 /* ViewController.h */,
-				8CBFB07F1AD075B900D7B604 /* ViewController.m */,
 				8CBFB0811AD075B900D7B604 /* Main.storyboard */,
 				8CBFB0841AD075B900D7B604 /* Images.xcassets */,
 				8CBFB0861AD075BA00D7B604 /* LaunchScreen.xib */,
@@ -126,9 +140,12 @@
 		8CBFB09D1AD079A700D7B604 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				8CBFB0B71AD0849D00D7B604 /* Constants */,
+				8CBFB0B51AD082F500D7B604 /* ViewControllers */,
+				8CBFB0A91AD07F2600D7B604 /* Managers */,
+				8CBFB0A41AD07C8900D7B604 /* ServiceLocator */,
+				8CBFB0A21AD07BAA00D7B604 /* Protocols */,
 				8CBFB09E1AD079A700D7B604 /* NavigationController */,
-				8CBFB09F1AD079D100D7B604 /* SENavigationController.h */,
-				8CBFB0A01AD079D100D7B604 /* SENavigationController.m */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -136,8 +153,91 @@
 		8CBFB09E1AD079A700D7B604 /* NavigationController */ = {
 			isa = PBXGroup;
 			children = (
+				8CBFB09F1AD079D100D7B604 /* SENavigationController.h */,
+				8CBFB0A01AD079D100D7B604 /* SENavigationController.m */,
 			);
 			path = NavigationController;
+			sourceTree = "<group>";
+		};
+		8CBFB0A21AD07BAA00D7B604 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				8CBFB0A31AD07BF700D7B604 /* SEServiceLocatorProtocol.h */,
+				8CBFB0A81AD07E0E00D7B604 /* SEGithubManagerProtocol.h */,
+				8CBFB0BA1AD085EA00D7B604 /* SEBaseViewControllerProtocol.h */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		8CBFB0A41AD07C8900D7B604 /* ServiceLocator */ = {
+			isa = PBXGroup;
+			children = (
+				8CBFB0A51AD07C9D00D7B604 /* SEServiceLocator.h */,
+				8CBFB0A61AD07C9D00D7B604 /* SEServiceLocator.m */,
+			);
+			path = ServiceLocator;
+			sourceTree = "<group>";
+		};
+		8CBFB0A91AD07F2600D7B604 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				8CBFB0B11AD081EA00D7B604 /* BaseManager */,
+				8CBFB0AD1AD07F7D00D7B604 /* GithubManager */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		8CBFB0AD1AD07F7D00D7B604 /* GithubManager */ = {
+			isa = PBXGroup;
+			children = (
+				8CBFB0AE1AD07F7D00D7B604 /* SEGithubManager.h */,
+				8CBFB0AF1AD07F7D00D7B604 /* SEGithubManager.m */,
+			);
+			path = GithubManager;
+			sourceTree = "<group>";
+		};
+		8CBFB0B11AD081EA00D7B604 /* BaseManager */ = {
+			isa = PBXGroup;
+			children = (
+				8CBFB0B21AD081FB00D7B604 /* SEBaseManager.h */,
+				8CBFB0B31AD081FB00D7B604 /* SEBaseManager.m */,
+			);
+			path = BaseManager;
+			sourceTree = "<group>";
+		};
+		8CBFB0B51AD082F500D7B604 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				8CBFB0BB1AD0877200D7B604 /* BaseViewController */,
+				8CBFB0B61AD082F500D7B604 /* MainViewController */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		8CBFB0B61AD082F500D7B604 /* MainViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8CBFB07E1AD075B900D7B604 /* SEMainViewController.h */,
+				8CBFB07F1AD075B900D7B604 /* SEMainViewController.m */,
+			);
+			path = MainViewController;
+			sourceTree = "<group>";
+		};
+		8CBFB0B71AD0849D00D7B604 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				8CBFB0B91AD0854800D7B604 /* SESegueID.h */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		8CBFB0BB1AD0877200D7B604 /* BaseViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8CBFB0BC1AD0878D00D7B604 /* SEBaseViewController.h */,
+				8CBFB0BD1AD0878D00D7B604 /* SEBaseViewController.m */,
+			);
+			path = BaseViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,9 +341,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				8CBFB0A11AD079D100D7B604 /* SENavigationController.m in Sources */,
-				8CBFB0801AD075B900D7B604 /* ViewController.m in Sources */,
+				8CBFB0801AD075B900D7B604 /* SEMainViewController.m in Sources */,
+				8CBFB0B41AD081FB00D7B604 /* SEBaseManager.m in Sources */,
+				8CBFB0BE1AD0878D00D7B604 /* SEBaseViewController.m in Sources */,
+				8CBFB0B01AD07F7D00D7B604 /* SEGithubManager.m in Sources */,
 				8CBFB07D1AD075B900D7B604 /* AppDelegate.m in Sources */,
 				8CBFB07A1AD075B900D7B604 /* main.m in Sources */,
+				8CBFB0A71AD07C9D00D7B604 /* SEServiceLocator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

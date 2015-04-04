@@ -6,17 +6,26 @@
 //  Copyright (c) 2015 Sergey Evseev. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "SEMainViewController.h"
+#import "SEServiceLocatorProtocol.h"
+#import "SEGithubManagerProtocol.h"
 
-@interface ViewController ()
+@interface SEMainViewController () {
+    
+    id <SEGithubManagerProtocol> _githubManager;
+    
+}
 
 @end
 
-@implementation ViewController
+@implementation SEMainViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    _githubManager = [_serviceLocator githubManager];
+    
 }
 
 - (void)didReceiveMemoryWarning {

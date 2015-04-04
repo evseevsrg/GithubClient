@@ -7,8 +7,18 @@
 //
 
 #import "SENavigationController.h"
+#import "SEServiceLocator.h"
+#import "SESegueID.h"
 
-@interface SENavigationController ()
+#import "SEServiceLocatorProtocol.h"
+#import "SEBaseViewControllerProtocol.h"
+
+
+@interface SENavigationController () {
+    
+    id <SEServiceLocatorProtocol> _serviceLocator;
+    
+}
 
 @end
 
@@ -17,12 +27,42 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [self p_initServiceLocator];
+    [self p_initMainController];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    //kPresentMainViewControllerSegue
+    
+    id <SEBaseViewControllerProtocol> viewController = [segue destinationViewController];
+    [viewController initWithLocator:_serviceLocator];
+    
+    
+}
+
+
+#pragma mark - private methods
+
+
+- (void)p_initMainController {
+    
+    [self performSegueWithIdentifier:kPresentMainViewControllerSegue sender:self];
+    
+}
+
+- (void)p_initServiceLocator {
+    
+    _serviceLocator = [[SEServiceLocator alloc] init];
+    
+}
+
 
 /*
 #pragma mark - Navigation
