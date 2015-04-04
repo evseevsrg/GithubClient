@@ -14,6 +14,7 @@
 		8CBFB0851AD075B900D7B604 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CBFB0841AD075B900D7B604 /* Images.xcassets */; };
 		8CBFB0881AD075BA00D7B604 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CBFB0861AD075BA00D7B604 /* LaunchScreen.xib */; };
 		8CBFB0941AD075BA00D7B604 /* GithubClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CBFB0931AD075BA00D7B604 /* GithubClientTests.m */; };
+		8CBFB0A11AD079D100D7B604 /* SENavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CBFB0A01AD079D100D7B604 /* SENavigationController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		8CBFB08D1AD075BA00D7B604 /* GithubClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GithubClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CBFB0921AD075BA00D7B604 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8CBFB0931AD075BA00D7B604 /* GithubClientTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GithubClientTests.m; sourceTree = "<group>"; };
+		8CBFB09F1AD079D100D7B604 /* SENavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SENavigationController.h; sourceTree = "<group>"; };
+		8CBFB0A01AD079D100D7B604 /* SENavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SENavigationController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +84,7 @@
 		8CBFB0761AD075B900D7B604 /* GithubClient */ = {
 			isa = PBXGroup;
 			children = (
+				8CBFB09D1AD079A700D7B604 /* Shared */,
 				8CBFB07B1AD075B900D7B604 /* AppDelegate.h */,
 				8CBFB07C1AD075B900D7B604 /* AppDelegate.m */,
 				8CBFB07E1AD075B900D7B604 /* ViewController.h */,
@@ -117,6 +121,23 @@
 				8CBFB0921AD075BA00D7B604 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8CBFB09D1AD079A700D7B604 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				8CBFB09E1AD079A700D7B604 /* NavigationController */,
+				8CBFB09F1AD079D100D7B604 /* SENavigationController.h */,
+				8CBFB0A01AD079D100D7B604 /* SENavigationController.m */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		8CBFB09E1AD079A700D7B604 /* NavigationController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NavigationController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,6 +240,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CBFB0A11AD079D100D7B604 /* SENavigationController.m in Sources */,
 				8CBFB0801AD075B900D7B604 /* ViewController.m in Sources */,
 				8CBFB07D1AD075B900D7B604 /* AppDelegate.m in Sources */,
 				8CBFB07A1AD075B900D7B604 /* main.m in Sources */,
