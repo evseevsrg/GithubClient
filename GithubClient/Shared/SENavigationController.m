@@ -39,11 +39,8 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
-    //kPresentMainViewControllerSegue
-    
     id <SEBaseViewControllerProtocol> viewController = [segue destinationViewController];
     [viewController initWithLocator:_serviceLocator];
-    
     
 }
 

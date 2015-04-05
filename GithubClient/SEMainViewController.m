@@ -7,12 +7,16 @@
 //
 
 #import "SEMainViewController.h"
+#import "SEMainViewDataSource.h"
+
+
 #import "SEServiceLocatorProtocol.h"
 #import "SEGithubManagerProtocol.h"
 
 @interface SEMainViewController () {
     
-    id <SEGithubManagerProtocol> _githubManager;
+    SEMainViewDataSource *_dataSource;
+    __weak IBOutlet UITableView *_tableView;
     
 }
 
@@ -21,10 +25,9 @@
 @implementation SEMainViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
     
-    _githubManager = [_serviceLocator githubManager];
+    [super viewDidLoad];
+    [self p_initDataSource];
     
 }
 
@@ -32,5 +35,18 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - private methods
+
+- (void)p_initDataSource {
+    
+    _dataSource = [[SEMainViewDataSource alloc] initWithGithubManager:[_serviceLocator githubManager]];
+    _dataSource.tableView = _tableView;
+    
+    _tableView.dataSource = _dataSource;
+    _tableView.delegate = _dataSource;
+    
+}
+
 
 @end

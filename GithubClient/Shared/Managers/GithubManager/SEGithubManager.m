@@ -7,6 +7,7 @@
 //
 
 #import "SEGithubManager.h"
+#import "SEGithubDataItem.h"
 
 @implementation SEGithubManager
 
@@ -18,11 +19,19 @@
     return self;
 }
 
-- (void)getListOfNoAuthRequests:(void(^)(NSDictionary *requests, NSError *error))completion {
+- (void)getListOfNoAuthRequests:(void(^)(NSArray *requests, NSError *error))completion {
     
     // return hardcoded dictionary, because there is no request to get list of requests without auth
     
-    NSDictionary *requests = @{@"link1": @"url1", @"link2": @"url2", @"link3": @"url3", @"link4": @"url4", @"link5": @"url5"};
+    NSArray *initRequestsData = @[@{@"title": @"Title1", @"link": @"http://link1"}, @{@"title": @"Title2", @"link": @"http://link2"}, @{@"title": @"Title3", @"link": @"http://link3"}, @{@"title": @"Title4", @"link": @"http://link4"}, @{@"title": @"Title5", @"link": @"http://link5"}];
+    
+    NSMutableArray *requests = [NSMutableArray new];
+    
+    for(NSDictionary *item in initRequestsData) {
+        SEGithubDataItem *githubItem = [[SEGithubDataItem alloc] initWithDictionary:item];
+        [requests addObject:githubItem];
+    }
+    
     completion(requests, nil);
     
 }

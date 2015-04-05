@@ -10,6 +10,6 @@
 
 @protocol SEGithubManagerProtocol <NSObject>
 
-- (void)getListOfNoAuthRequests:(void(^)(NSDictionary *requests, NSError *error))completion;
+- (void)getListOfNoAuthRequests:(void(^)(NSArray *requests, NSError *error))completion;
 
 @end

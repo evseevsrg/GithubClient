@@ -19,6 +19,8 @@
 		8CBFB0B01AD07F7D00D7B604 /* SEGithubManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CBFB0AF1AD07F7D00D7B604 /* SEGithubManager.m */; };
 		8CBFB0B41AD081FB00D7B604 /* SEBaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CBFB0B31AD081FB00D7B604 /* SEBaseManager.m */; };
 		8CBFB0BE1AD0878D00D7B604 /* SEBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CBFB0BD1AD0878D00D7B604 /* SEBaseViewController.m */; };
+		8CBFB0C31AD093E000D7B604 /* SEMainViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CBFB0C21AD093E000D7B604 /* SEMainViewDataSource.m */; };
+		8CBFB0CE1AD132F600D7B604 /* SEGithubDataItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CBFB0CD1AD132F600D7B604 /* SEGithubDataItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,11 @@
 		8CBFB0BA1AD085EA00D7B604 /* SEBaseViewControllerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEBaseViewControllerProtocol.h; sourceTree = "<group>"; };
 		8CBFB0BC1AD0878D00D7B604 /* SEBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEBaseViewController.h; sourceTree = "<group>"; };
 		8CBFB0BD1AD0878D00D7B604 /* SEBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEBaseViewController.m; sourceTree = "<group>"; };
+		8CBFB0C11AD093E000D7B604 /* SEMainViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEMainViewDataSource.h; sourceTree = "<group>"; };
+		8CBFB0C21AD093E000D7B604 /* SEMainViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEMainViewDataSource.m; sourceTree = "<group>"; };
+		8CBFB0C81AD12E5D00D7B604 /* SEDataItemProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEDataItemProtocol.h; sourceTree = "<group>"; };
+		8CBFB0CC1AD132F600D7B604 /* SEGithubDataItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEGithubDataItem.h; sourceTree = "<group>"; };
+		8CBFB0CD1AD132F600D7B604 /* SEGithubDataItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEGithubDataItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +147,8 @@
 		8CBFB09D1AD079A700D7B604 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				8CBFB0CA1AD132BC00D7B604 /* DataItems */,
+				8CBFB0BF1AD093C300D7B604 /* DataSources */,
 				8CBFB0B71AD0849D00D7B604 /* Constants */,
 				8CBFB0B51AD082F500D7B604 /* ViewControllers */,
 				8CBFB0A91AD07F2600D7B604 /* Managers */,
@@ -165,6 +174,7 @@
 				8CBFB0A31AD07BF700D7B604 /* SEServiceLocatorProtocol.h */,
 				8CBFB0A81AD07E0E00D7B604 /* SEGithubManagerProtocol.h */,
 				8CBFB0BA1AD085EA00D7B604 /* SEBaseViewControllerProtocol.h */,
+				8CBFB0C81AD12E5D00D7B604 /* SEDataItemProtocol.h */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -238,6 +248,40 @@
 				8CBFB0BD1AD0878D00D7B604 /* SEBaseViewController.m */,
 			);
 			path = BaseViewController;
+			sourceTree = "<group>";
+		};
+		8CBFB0BF1AD093C300D7B604 /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+				8CBFB0C01AD093C400D7B604 /* MainViewDataSource */,
+			);
+			path = DataSources;
+			sourceTree = "<group>";
+		};
+		8CBFB0C01AD093C400D7B604 /* MainViewDataSource */ = {
+			isa = PBXGroup;
+			children = (
+				8CBFB0C11AD093E000D7B604 /* SEMainViewDataSource.h */,
+				8CBFB0C21AD093E000D7B604 /* SEMainViewDataSource.m */,
+			);
+			path = MainViewDataSource;
+			sourceTree = "<group>";
+		};
+		8CBFB0CA1AD132BC00D7B604 /* DataItems */ = {
+			isa = PBXGroup;
+			children = (
+				8CBFB0CB1AD132DF00D7B604 /* GithubDataItem */,
+			);
+			path = DataItems;
+			sourceTree = "<group>";
+		};
+		8CBFB0CB1AD132DF00D7B604 /* GithubDataItem */ = {
+			isa = PBXGroup;
+			children = (
+				8CBFB0CC1AD132F600D7B604 /* SEGithubDataItem.h */,
+				8CBFB0CD1AD132F600D7B604 /* SEGithubDataItem.m */,
+			);
+			path = GithubDataItem;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -343,6 +387,8 @@
 				8CBFB0A11AD079D100D7B604 /* SENavigationController.m in Sources */,
 				8CBFB0801AD075B900D7B604 /* SEMainViewController.m in Sources */,
 				8CBFB0B41AD081FB00D7B604 /* SEBaseManager.m in Sources */,
+				8CBFB0CE1AD132F600D7B604 /* SEGithubDataItem.m in Sources */,
+				8CBFB0C31AD093E000D7B604 /* SEMainViewDataSource.m in Sources */,
 				8CBFB0BE1AD0878D00D7B604 /* SEBaseViewController.m in Sources */,
 				8CBFB0B01AD07F7D00D7B604 /* SEGithubManager.m in Sources */,
 				8CBFB07D1AD075B900D7B604 /* AppDelegate.m in Sources */,
