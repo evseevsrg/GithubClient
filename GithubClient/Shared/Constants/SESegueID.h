@@ -10,5 +10,6 @@
 #define GithubClient_SESegueID_h
 
 static NSString * const kPresentMainViewControllerSegue = @"PresentMainViewControllerSegue";
+static NSString * const kPresentRepoViewControllerSegue = @"PresentRepoViewControllerSegue";
 
 #endif

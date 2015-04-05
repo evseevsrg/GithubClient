@@ -23,7 +23,17 @@
     
     // return hardcoded dictionary, because there is no request to get list of requests without auth
     
-    NSArray *initRequestsData = @[@{@"title": @"Title1", @"link": @"http://link1"}, @{@"title": @"Title2", @"link": @"http://link2"}, @{@"title": @"Title3", @"link": @"http://link3"}, @{@"title": @"Title4", @"link": @"http://link4"}, @{@"title": @"Title5", @"link": @"http://link5"}];
+    NSArray *initRequestsData = @[@{@"title": @"Google repos",
+                                    @"link": @"https://api.github.com/users/google/repos"},
+                                  @{@"title": @"Facebook repos",
+                                    @"link": @"https://api.github.com/users/facebook/repos"},
+                                  @{@"title": @"Twitter repos",
+                                    @"link": @"https://api.github.com/users/twitter/repos"},
+                                  @{@"title": @"Microsoft repos",
+                                    @"link": @"https://api.github.com/users/microsoft/repos"},
+                                  @{@"title": @"Yandex repos",
+                                    @"link": @"https://api.github.com/users/yandex/repos"}
+                                  ];
     
     NSMutableArray *requests = [NSMutableArray new];
     

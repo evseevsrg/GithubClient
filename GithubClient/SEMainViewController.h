@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "SEBaseViewController.h"
+#import "SEMainViewDataSource.h"
 
-@interface SEMainViewController : SEBaseViewController
+@interface SEMainViewController : SEBaseViewController <SEMainViewDataSourceProtocol>
 
 
 @end

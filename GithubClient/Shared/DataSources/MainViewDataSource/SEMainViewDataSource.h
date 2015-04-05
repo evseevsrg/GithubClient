@@ -10,10 +10,21 @@
 #import <UIKit/UIKit.h>
 
 #import "SEGithubManagerProtocol.h"
+#import "SEGithubDataItem.h"
+
+
+@protocol SEMainViewDataSourceProtocol <NSObject>
+
+- (void)didSelectRowWithData:(id <SEDataItemProtocol>)data;
+
+@end
+
+
 
 @interface SEMainViewDataSource : NSObject <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, weak) UITableView *tableView;
+@property (nonatomic, weak) id <SEMainViewDataSourceProtocol> delegate;
 
 - (instancetype)initWithGithubManager:(id <SEGithubManagerProtocol>)githubManager;
 

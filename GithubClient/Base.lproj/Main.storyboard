@@ -33,11 +33,31 @@
                     <navigationItem key="navigationItem" id="FrG-mu-rDw"/>
                     <connections>
                         <outlet property="_tableView" destination="1g3-za-hAA" id="EzY-PQ-Kue"/>
+                        <segue destination="7Ez-c0-tNI" kind="show" identifier="PresentRepoViewControllerSegue" id="BRd-73-P5U"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1191" y="-351"/>
+        </scene>
+        <!--Repo View Controller-->
+        <scene sceneID="lTL-Q3-MPK">
+            <objects>
+                <viewController id="7Ez-c0-tNI" customClass="SERepoViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WjR-hT-rPo"/>
+                        <viewControllerLayoutGuide type="bottom" id="pZ4-ZD-Q1P"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="utd-Aw-34j">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Dda-uZ-u9w"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MI9-UA-luF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2092" y="-351"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="zb1-ox-CYX">

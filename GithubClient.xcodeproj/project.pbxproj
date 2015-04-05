@@ -21,6 +21,7 @@
 		8CBFB0BE1AD0878D00D7B604 /* SEBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CBFB0BD1AD0878D00D7B604 /* SEBaseViewController.m */; };
 		8CBFB0C31AD093E000D7B604 /* SEMainViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CBFB0C21AD093E000D7B604 /* SEMainViewDataSource.m */; };
 		8CBFB0CE1AD132F600D7B604 /* SEGithubDataItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CBFB0CD1AD132F600D7B604 /* SEGithubDataItem.m */; };
+		8CBFB0D21AD19E6900D7B604 /* SERepoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CBFB0D11AD19E6900D7B604 /* SERepoViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,8 @@
 		8CBFB0C81AD12E5D00D7B604 /* SEDataItemProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEDataItemProtocol.h; sourceTree = "<group>"; };
 		8CBFB0CC1AD132F600D7B604 /* SEGithubDataItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEGithubDataItem.h; sourceTree = "<group>"; };
 		8CBFB0CD1AD132F600D7B604 /* SEGithubDataItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEGithubDataItem.m; sourceTree = "<group>"; };
+		8CBFB0D01AD19E6900D7B604 /* SERepoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SERepoViewController.h; sourceTree = "<group>"; };
+		8CBFB0D11AD19E6900D7B604 /* SERepoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SERepoViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,6 +221,7 @@
 		8CBFB0B51AD082F500D7B604 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				8CBFB0CF1AD19E4700D7B604 /* RepoViewController */,
 				8CBFB0BB1AD0877200D7B604 /* BaseViewController */,
 				8CBFB0B61AD082F500D7B604 /* MainViewController */,
 			);
@@ -282,6 +286,15 @@
 				8CBFB0CD1AD132F600D7B604 /* SEGithubDataItem.m */,
 			);
 			path = GithubDataItem;
+			sourceTree = "<group>";
+		};
+		8CBFB0CF1AD19E4700D7B604 /* RepoViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8CBFB0D01AD19E6900D7B604 /* SERepoViewController.h */,
+				8CBFB0D11AD19E6900D7B604 /* SERepoViewController.m */,
+			);
+			path = RepoViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -387,6 +400,7 @@
 				8CBFB0A11AD079D100D7B604 /* SENavigationController.m in Sources */,
 				8CBFB0801AD075B900D7B604 /* SEMainViewController.m in Sources */,
 				8CBFB0B41AD081FB00D7B604 /* SEBaseManager.m in Sources */,
+				8CBFB0D21AD19E6900D7B604 /* SERepoViewController.m in Sources */,
 				8CBFB0CE1AD132F600D7B604 /* SEGithubDataItem.m in Sources */,
 				8CBFB0C31AD093E000D7B604 /* SEMainViewDataSource.m in Sources */,
 				8CBFB0BE1AD0878D00D7B604 /* SEBaseViewController.m in Sources */,

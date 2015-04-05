@@ -16,7 +16,16 @@
 
 @implementation SEBaseViewController
 
-- (void)initWithLocator:(id <SEServiceLocatorProtocol>)locator {
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    
+    if (self = [super initWithCoder:aDecoder]) {
+        
+    }
+    return self;
+    
+}
+
+- (void)setupLocator:(id <SEServiceLocatorProtocol>)locator {
     
     _serviceLocator = locator;
     

@@ -55,10 +55,20 @@
     cell.textLabel.text = [item getTitle];
     cell.detailTextLabel.text = [item getLink];
     
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    
     return cell;
     
 }
 
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if ([self.delegate respondsToSelector:@selector(didSelectRowWithData:)]) {
+        [self.delegate didSelectRowWithData:[_resources objectAtIndex:indexPath.row]];
+    }
+    
+}
 
 #pragma mark - UITableViewDelegate
 

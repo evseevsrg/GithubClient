@@ -29,7 +29,7 @@
     // Do any additional setup after loading the view.
     
     [self p_initServiceLocator];
-    [self p_initMainController];
+    [self p_showMainController];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,7 +40,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     id <SEBaseViewControllerProtocol> viewController = [segue destinationViewController];
-    [viewController initWithLocator:_serviceLocator];
+    [viewController setupLocator:_serviceLocator];
     
 }
 
@@ -48,7 +48,7 @@
 #pragma mark - private methods
 
 
-- (void)p_initMainController {
+- (void)p_showMainController {
     
     [self performSegueWithIdentifier:kPresentMainViewControllerSegue sender:self];
     
