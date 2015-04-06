@@ -40,7 +40,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     id <SEBaseViewControllerProtocol> viewController = [segue destinationViewController];
-    [viewController setupLocator:_serviceLocator];
+    viewController.serviceLocator = _serviceLocator;
     
 }
 

@@ -39,6 +39,7 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    [self p_initUI];
     [self p_initDataSource];
     
 }
@@ -50,6 +51,8 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
 
+    [super prepareForSegue:segue sender:sender];
+    
     SERepoViewController *viewController = [segue destinationViewController];
     viewController.selectedItem = _selectedItem;
     
@@ -61,16 +64,22 @@
 - (void)didSelectRowWithData:(id <SEDataItemProtocol>)data {
     
     _selectedItem = data;
-    [self.navigationController performSegueWithIdentifier:kPresentRepoViewControllerSegue sender:self];
+    [self performSegueWithIdentifier:kPresentRepoViewControllerSegue sender:self];
     
 }
 
 
 #pragma mark - private methods
 
+- (void)p_initUI {
+    
+    self.title = @"Repositories List";
+    
+}
+
 - (void)p_initDataSource {
     
-    _dataSource = [[SEMainViewDataSource alloc] initWithGithubManager:[_serviceLocator githubManager]];
+    _dataSource = [[SEMainViewDataSource alloc] initWithGithubManager:[self.serviceLocator githubManager]];
     _dataSource.tableView = _tableView;
     _dataSource.delegate = self;
     

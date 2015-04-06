@@ -8,11 +8,15 @@
 
 #import "SEServiceLocator.h"
 #import "SEGithubManager.h"
+#import "SERESTClient.h"
+
+#import "SERESTClientProtocol.h"
 
 
 @interface SEServiceLocator () {
     
     id <SEGithubManagerProtocol> _githubManager;
+    id <SERESTClientProtocol> _RESTClient;
     
 }
 
@@ -20,10 +24,22 @@
 
 @implementation SEServiceLocator
 
+
+- (instancetype)init {
+    
+    if (self = [super init]) {
+        
+        _RESTClient = [[SERESTClient alloc] init];
+        
+    }
+    
+    return self;
+}
+
 - (id <SEGithubManagerProtocol>)githubManager {
     
     if (_githubManager == nil) {
-        _githubManager = [[SEGithubManager alloc] init];
+        _githubManager = [[SEGithubManager alloc] initWithRESTClient:_RESTClient];
     }
     
     return _githubManager;

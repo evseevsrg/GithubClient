@@ -12,6 +12,6 @@
 
 @protocol SEBaseViewControllerProtocol <NSObject>
 
-- (void)setupLocator:(id <SEServiceLocatorProtocol>)locator;
+@property (nonatomic, retain) id <SEServiceLocatorProtocol> serviceLocator;
 
 @end

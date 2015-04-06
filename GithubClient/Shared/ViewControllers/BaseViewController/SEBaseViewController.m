@@ -14,7 +14,10 @@
 
 @end
 
+
 @implementation SEBaseViewController
+
+@synthesize serviceLocator;
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     
@@ -25,9 +28,13 @@
     
 }
 
-- (void)setupLocator:(id <SEServiceLocatorProtocol>)locator {
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
-    _serviceLocator = locator;
+    id <SEBaseViewControllerProtocol> destinationViewController = [segue destinationViewController];
+    id <SEBaseViewControllerProtocol> sourceViewController = [segue sourceViewController];
+    
+    destinationViewController.serviceLocator = sourceViewController.serviceLocator;
     
 }
 

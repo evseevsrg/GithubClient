@@ -9,11 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "SEBaseViewControllerProtocol.h"
 
-@interface SEBaseViewController : UIViewController <SEBaseViewControllerProtocol> {
-    
-    @protected
-    id <SEServiceLocatorProtocol> _serviceLocator;
-    
-}
+@interface SEBaseViewController : UIViewController <SEBaseViewControllerProtocol>
 
 @end
