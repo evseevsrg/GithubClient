@@ -53,7 +53,7 @@
     id <SEDataItemProtocol> item = [_resources objectAtIndex:indexPath.row];
     
     cell.textLabel.text = [item getTitle];
-    cell.detailTextLabel.text = [item getLink];
+    cell.detailTextLabel.text = [item getURL];
     
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
@@ -84,7 +84,7 @@
 
 - (void)p_initResources {
     
-    [_githubManager getListOfNoAuthRequests:^(NSArray *requests, NSError *error) {
+    [_githubManager getListOfRepos:^(NSArray *requests, NSError *error) {
         
         if (error == nil) {
             [self p_updateTableWithData:requests];

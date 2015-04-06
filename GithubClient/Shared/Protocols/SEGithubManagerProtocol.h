@@ -8,8 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+@protocol SERESTClientProtocol;
+
 @protocol SEGithubManagerProtocol <NSObject>
 
-- (void)getListOfNoAuthRequests:(void(^)(NSArray *requests, NSError *error))completion;
+- (instancetype)initWithRESTClient:(id <SERESTClientProtocol>)RESTClient;
+- (void)getListOfRepos:(void(^)(NSArray *requests, NSError *error))completion;
+- (void)getListOfRepositoriesByURL:(NSString *)url withCompletion:(void(^)(NSArray *requests, NSError *error))completion;
 
 @end

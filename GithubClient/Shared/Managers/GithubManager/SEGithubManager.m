@@ -8,18 +8,44 @@
 
 #import "SEGithubManager.h"
 #import "SEGithubDataItem.h"
+#import "SERESTClientProtocol.h"
+
+
+@interface SEGithubManager () {
+    
+    id <SERESTClientProtocol> _RESTClient;
+    
+}
+
+@end
+
 
 @implementation SEGithubManager
 
-- (instancetype)init {
+- (instancetype)initWithRESTClient:(id <SERESTClientProtocol>)RESTClient {
     
-    if(self = [super init]) {
-
+    if (self = [super init]) {
+        _RESTClient = RESTClient;
     }
     return self;
 }
 
-- (void)getListOfNoAuthRequests:(void(^)(NSArray *requests, NSError *error))completion {
+
+- (void)getListOfRepositoriesByURL:(NSString *)url withCompletion:(void(^)(NSArray *requests, NSError *error))completion {
+    
+    [_RESTClient getJSONByURL:url withCompletion:^(NSString *responce, NSError *error) {
+        
+        if (error) {
+            completion(nil, error);
+        } else {
+            completion([self p_parseJSON:responce], nil);
+        }
+        
+    }];
+    
+}
+
+- (void)getListOfRepos:(void(^)(NSArray *requests, NSError *error))completion {
     
     // return hardcoded dictionary, because there is no request to get list of requests without auth
     
@@ -43,6 +69,15 @@
     }
     
     completion(requests, nil);
+    
+}
+
+
+#pragma mark - private methods
+
+- (NSArray *)p_parseJSON:(NSString *)string {
+    
+    return [NSArray new];
     
 }
 

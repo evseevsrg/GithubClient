@@ -36,7 +36,7 @@
     return _title;
 }
 
-- (NSString *)getLink {
+- (NSString *)getURL {
     return _link;
 }
 

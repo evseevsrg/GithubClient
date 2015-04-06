@@ -11,6 +11,6 @@
 @protocol SEDataItemProtocol <NSObject>
 
 - (NSString *)getTitle;
-- (NSString *)getLink;
+- (NSString *)getURL;
 
 @end

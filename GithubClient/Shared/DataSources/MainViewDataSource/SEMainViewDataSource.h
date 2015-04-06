@@ -20,7 +20,6 @@
 @end
 
 
-
 @interface SEMainViewDataSource : NSObject <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, weak) UITableView *tableView;
