@@ -14,20 +14,20 @@
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="1g3-za-hAA">
-                                <rect key="frame" x="16" y="64" width="568" height="536"/>
+                                <rect key="frame" x="16" y="0.0" width="568" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="1g3-za-hAA" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="Iz7-qL-nKY"/>
-                            <constraint firstItem="1g3-za-hAA" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="LEQ-bi-N2r"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="1g3-za-hAA" secondAttribute="trailing" id="M6P-rg-zxF"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="1g3-za-hAA" secondAttribute="bottom" id="xqa-Q9-4NN"/>
+                            <constraint firstItem="1g3-za-hAA" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="3Ko-Ne-u98"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="1g3-za-hAA" secondAttribute="bottom" id="HIf-Lc-Enf"/>
+                            <constraint firstItem="1g3-za-hAA" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="zjM-82-xM2"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="1g3-za-hAA" secondAttribute="trailing" id="zxL-aW-V1X"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="FrG-mu-rDw"/>
@@ -51,9 +51,24 @@
                     <view key="view" contentMode="scaleToFill" id="utd-Aw-34j">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="mPo-WE-0wU">
+                                <rect key="frame" x="16" y="0.0" width="568" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="mPo-WE-0wU" firstAttribute="top" secondItem="utd-Aw-34j" secondAttribute="topMargin" id="3dB-RZ-OXr"/>
+                            <constraint firstItem="mPo-WE-0wU" firstAttribute="leading" secondItem="utd-Aw-34j" secondAttribute="leadingMargin" id="6vy-9z-lfL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mPo-WE-0wU" secondAttribute="trailing" id="FOo-Cr-rYw"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="mPo-WE-0wU" secondAttribute="bottom" id="R2I-5F-Uks"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Dda-uZ-u9w"/>
+                    <connections>
+                        <outlet property="_tableView" destination="mPo-WE-0wU" id="7BD-wc-83I"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MI9-UA-luF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
