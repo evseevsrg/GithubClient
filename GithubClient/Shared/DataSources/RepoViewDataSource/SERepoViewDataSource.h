@@ -7,7 +7,25 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-@interface SERepoViewDataSource : NSObject
+#import "SEGithubManagerProtocol.h"
+#import "SEGithubDataItem.h"
+
+
+@protocol SERepoViewDataSourceProtocol <NSObject>
+
+- (void)didSelectRowWithData:(id <SEDataItemProtocol>)data;
+
+@end
+
+
+@interface SERepoViewDataSource : NSObject <UITableViewDelegate, UITableViewDataSource>
+
+@property (nonatomic, weak) UITableView *tableView;
+@property (nonatomic, weak) id <SERepoViewDataSourceProtocol> delegate;
+@property (nonatomic, retain) id <SEDataItemProtocol> selectedItem;
+
+- (instancetype)initWithGithubManager:(id <SEGithubManagerProtocol>)githubManager;
 
 @end

@@ -9,7 +9,9 @@
 #import "SEBaseViewController.h"
 #import "SEDataItemProtocol.h"
 
-@interface SERepoViewController : SEBaseViewController
+#import "SERepoViewDataSource.h"
+
+@interface SERepoViewController : SEBaseViewController <SERepoViewDataSourceProtocol>
 
 @property (nonatomic, retain) id <SEDataItemProtocol> selectedItem;
 
