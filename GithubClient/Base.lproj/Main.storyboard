@@ -56,17 +56,35 @@
                                 <rect key="frame" x="16" y="0.0" width="568" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
+                            <view alpha="0.39999999999999963" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6qk-R8-C4K">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="HSL-I8-R0F">
+                                        <rect key="frame" x="305" y="232" width="20" height="20"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerY" secondItem="HSL-I8-R0F" secondAttribute="centerY" constant="26" id="Qo8-Pe-Lgp"/>
+                                    <constraint firstAttribute="centerX" secondItem="HSL-I8-R0F" secondAttribute="centerX" constant="-15" id="YSu-cL-urd"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="mPo-WE-0wU" firstAttribute="top" secondItem="utd-Aw-34j" secondAttribute="topMargin" id="3dB-RZ-OXr"/>
+                            <constraint firstItem="6qk-R8-C4K" firstAttribute="top" secondItem="WjR-hT-rPo" secondAttribute="bottom" id="53f-wM-byr"/>
+                            <constraint firstItem="pZ4-ZD-Q1P" firstAttribute="top" secondItem="6qk-R8-C4K" secondAttribute="bottom" id="5do-dZ-ekR"/>
                             <constraint firstItem="mPo-WE-0wU" firstAttribute="leading" secondItem="utd-Aw-34j" secondAttribute="leadingMargin" id="6vy-9z-lfL"/>
                             <constraint firstAttribute="trailingMargin" secondItem="mPo-WE-0wU" secondAttribute="trailing" id="FOo-Cr-rYw"/>
                             <constraint firstAttribute="bottomMargin" secondItem="mPo-WE-0wU" secondAttribute="bottom" id="R2I-5F-Uks"/>
+                            <constraint firstItem="6qk-R8-C4K" firstAttribute="leading" secondItem="utd-Aw-34j" secondAttribute="leadingMargin" constant="-16" id="UGY-A6-fHg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="6qk-R8-C4K" secondAttribute="trailing" constant="-16" id="zwM-CK-BEW"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Dda-uZ-u9w"/>
                     <connections>
+                        <outlet property="_loadingView" destination="6qk-R8-C4K" id="yUZ-3a-exy"/>
                         <outlet property="_tableView" destination="mPo-WE-0wU" id="7BD-wc-83I"/>
                     </connections>
                 </viewController>

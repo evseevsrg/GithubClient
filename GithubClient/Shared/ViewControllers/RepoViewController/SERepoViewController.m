@@ -16,6 +16,7 @@
     
     SERepoViewDataSource *_dataSource;
     __weak IBOutlet UITableView *_tableView;
+    __weak IBOutlet UIView *_loadingView;
     
 }
 
@@ -49,21 +50,34 @@
     
 }
 
+- (void)startLoadingData {
+    
+    _loadingView.hidden = NO;
+    
+}
+
+- (void)stopLoadingData {
+    
+    _loadingView.hidden = YES;
+    
+}
 
 #pragma mark - private methods
 
 - (void)p_initUI {
     
-    self.title = [self.selectedItem getTitle];
+    self.title = self.selectedItem.title;
+    [self stopLoadingData];
     
 }
 
 - (void)p_initDataSource {
     
-    _dataSource = [[SERepoViewDataSource alloc] initWithGithubManager:[self.serviceLocator githubManager]];
+    _dataSource = [[SERepoViewDataSource alloc] init];
     _dataSource.tableView = _tableView;
     _dataSource.selectedItem = self.selectedItem;
     _dataSource.delegate = self;
+    [_dataSource setGithubManager:[self.serviceLocator githubManager]];
     
     _tableView.dataSource = _dataSource;
     _tableView.delegate = _dataSource;

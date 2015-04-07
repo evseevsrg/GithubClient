@@ -22,6 +22,8 @@
 		8CBFB0C31AD093E000D7B604 /* SEMainViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CBFB0C21AD093E000D7B604 /* SEMainViewDataSource.m */; };
 		8CBFB0CE1AD132F600D7B604 /* SEGithubDataItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CBFB0CD1AD132F600D7B604 /* SEGithubDataItem.m */; };
 		8CBFB0D21AD19E6900D7B604 /* SERepoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CBFB0D11AD19E6900D7B604 /* SERepoViewController.m */; };
+		8CBFB0D61AD1C96E00D7B604 /* SERepoViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CBFB0D51AD1C96E00D7B604 /* SERepoViewDataSource.m */; };
+		8CBFB0DB1AD3275C00D7B604 /* SERESTClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CBFB0DA1AD3275C00D7B604 /* SERESTClient.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +71,11 @@
 		8CBFB0CD1AD132F600D7B604 /* SEGithubDataItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEGithubDataItem.m; sourceTree = "<group>"; };
 		8CBFB0D01AD19E6900D7B604 /* SERepoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SERepoViewController.h; sourceTree = "<group>"; };
 		8CBFB0D11AD19E6900D7B604 /* SERepoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SERepoViewController.m; sourceTree = "<group>"; };
+		8CBFB0D41AD1C96E00D7B604 /* SERepoViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SERepoViewDataSource.h; sourceTree = "<group>"; };
+		8CBFB0D51AD1C96E00D7B604 /* SERepoViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SERepoViewDataSource.m; sourceTree = "<group>"; };
+		8CBFB0D71AD3268100D7B604 /* SERESTClientProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SERESTClientProtocol.h; sourceTree = "<group>"; };
+		8CBFB0D91AD3275C00D7B604 /* SERESTClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SERESTClient.h; sourceTree = "<group>"; };
+		8CBFB0DA1AD3275C00D7B604 /* SERESTClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SERESTClient.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +185,7 @@
 				8CBFB0A81AD07E0E00D7B604 /* SEGithubManagerProtocol.h */,
 				8CBFB0BA1AD085EA00D7B604 /* SEBaseViewControllerProtocol.h */,
 				8CBFB0C81AD12E5D00D7B604 /* SEDataItemProtocol.h */,
+				8CBFB0D71AD3268100D7B604 /* SERESTClientProtocol.h */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -194,6 +202,7 @@
 		8CBFB0A91AD07F2600D7B604 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				8CBFB0D81AD3273C00D7B604 /* RESTClient */,
 				8CBFB0B11AD081EA00D7B604 /* BaseManager */,
 				8CBFB0AD1AD07F7D00D7B604 /* GithubManager */,
 			);
@@ -257,6 +266,7 @@
 		8CBFB0BF1AD093C300D7B604 /* DataSources */ = {
 			isa = PBXGroup;
 			children = (
+				8CBFB0D31AD1C94C00D7B604 /* RepoViewDataSource */,
 				8CBFB0C01AD093C400D7B604 /* MainViewDataSource */,
 			);
 			path = DataSources;
@@ -295,6 +305,24 @@
 				8CBFB0D11AD19E6900D7B604 /* SERepoViewController.m */,
 			);
 			path = RepoViewController;
+			sourceTree = "<group>";
+		};
+		8CBFB0D31AD1C94C00D7B604 /* RepoViewDataSource */ = {
+			isa = PBXGroup;
+			children = (
+				8CBFB0D41AD1C96E00D7B604 /* SERepoViewDataSource.h */,
+				8CBFB0D51AD1C96E00D7B604 /* SERepoViewDataSource.m */,
+			);
+			path = RepoViewDataSource;
+			sourceTree = "<group>";
+		};
+		8CBFB0D81AD3273C00D7B604 /* RESTClient */ = {
+			isa = PBXGroup;
+			children = (
+				8CBFB0D91AD3275C00D7B604 /* SERESTClient.h */,
+				8CBFB0DA1AD3275C00D7B604 /* SERESTClient.m */,
+			);
+			path = RESTClient;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -402,12 +430,14 @@
 				8CBFB0B41AD081FB00D7B604 /* SEBaseManager.m in Sources */,
 				8CBFB0D21AD19E6900D7B604 /* SERepoViewController.m in Sources */,
 				8CBFB0CE1AD132F600D7B604 /* SEGithubDataItem.m in Sources */,
+				8CBFB0D61AD1C96E00D7B604 /* SERepoViewDataSource.m in Sources */,
 				8CBFB0C31AD093E000D7B604 /* SEMainViewDataSource.m in Sources */,
 				8CBFB0BE1AD0878D00D7B604 /* SEBaseViewController.m in Sources */,
 				8CBFB0B01AD07F7D00D7B604 /* SEGithubManager.m in Sources */,
 				8CBFB07D1AD075B900D7B604 /* AppDelegate.m in Sources */,
 				8CBFB07A1AD075B900D7B604 /* main.m in Sources */,
 				8CBFB0A71AD07C9D00D7B604 /* SEServiceLocator.m in Sources */,
+				8CBFB0DB1AD3275C00D7B604 /* SERESTClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

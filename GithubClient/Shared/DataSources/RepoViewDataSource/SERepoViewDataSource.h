@@ -16,6 +16,8 @@
 @protocol SERepoViewDataSourceProtocol <NSObject>
 
 - (void)didSelectRowWithData:(id <SEDataItemProtocol>)data;
+- (void)startLoadingData;
+- (void)stopLoadingData;
 
 @end
 
@@ -26,6 +28,6 @@
 @property (nonatomic, weak) id <SERepoViewDataSourceProtocol> delegate;
 @property (nonatomic, retain) id <SEDataItemProtocol> selectedItem;
 
-- (instancetype)initWithGithubManager:(id <SEGithubManagerProtocol>)githubManager;
+- (void)setGithubManager:(id <SEGithubManagerProtocol>)githubManager;
 
 @end

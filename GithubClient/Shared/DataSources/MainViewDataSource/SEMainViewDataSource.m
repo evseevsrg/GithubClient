@@ -52,8 +52,8 @@
     
     id <SEDataItemProtocol> item = [_resources objectAtIndex:indexPath.row];
     
-    cell.textLabel.text = [item getTitle];
-    cell.detailTextLabel.text = [item getURL];
+    cell.textLabel.text = item.title;
+    cell.detailTextLabel.text = item.link;
     
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     

@@ -10,7 +10,7 @@
 
 @protocol SEDataItemProtocol <NSObject>
 
-- (NSString *)getTitle;
-- (NSString *)getURL;
+@property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy) NSString *link;
 
 @end

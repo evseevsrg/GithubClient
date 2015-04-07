@@ -10,15 +10,15 @@
 
 @interface SEGithubDataItem () {
     
-    NSString *_title;
-    NSString *_link;
-    
 }
 
 @end
 
 
 @implementation SEGithubDataItem
+
+@synthesize title = _title;
+@synthesize link = _link;
 
 - (instancetype)initWithDictionary:(NSDictionary *)data {
     

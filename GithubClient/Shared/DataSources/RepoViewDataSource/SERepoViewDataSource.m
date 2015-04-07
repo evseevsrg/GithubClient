@@ -21,13 +21,19 @@
 
 @implementation SERepoViewDataSource
 
-- (instancetype)initWithGithubManager:(id <SEGithubManagerProtocol>)githubManager {
+- (instancetype)init {
     
     if (self = [super init]) {
-        _githubManager = githubManager;
-        [self p_initResources];
+        
     }
     return self;
+    
+}
+
+- (void)setGithubManager:(id<SEGithubManagerProtocol>)githubManager {
+    
+    _githubManager = githubManager;
+    [self p_initResources];
     
 }
 
@@ -53,8 +59,8 @@
     
     id <SEDataItemProtocol> item = [_resources objectAtIndex:indexPath.row];
     
-    cell.textLabel.text = [item getTitle];
-    cell.detailTextLabel.text = [item getURL];
+    cell.textLabel.text = item.title;
+    cell.detailTextLabel.text = item.link;
     
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
@@ -77,16 +83,35 @@
 
 - (void)p_initResources {
     
-    [_githubManager getListOfRepositoriesByURL:[self.selectedItem getURL] withCompletion:^(NSArray *requests, NSError *error) {
+    [self p_startLoadingData];
+    
+    [_githubManager getListOfRepositoriesByURL:self.selectedItem.link withCompletion:^(NSArray *requests, NSError *error) {
         
+        [self p_stopLoadingData];
         if (error == nil) {
-            //[self p_updateTableWithData:requests];
+            
         } else {
             // handle errors
-            // no errors, return hardcoded data
+            NSLog(@"error loading data");
         }
         
     }];
+    
+}
+
+- (void)p_startLoadingData {
+    
+    if ([self.delegate respondsToSelector:@selector(startLoadingData)]) {
+        [self.delegate startLoadingData];
+    }
+    
+}
+
+- (void)p_stopLoadingData {
+    
+    if ([self.delegate respondsToSelector:@selector(stopLoadingData)]) {
+        [self.delegate stopLoadingData];
+    }
     
 }
 

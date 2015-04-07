@@ -8,6 +8,7 @@
 
 #import "SEGithubManager.h"
 #import "SEGithubDataItem.h"
+
 #import "SERESTClientProtocol.h"
 
 
@@ -33,12 +34,19 @@
 
 - (void)getListOfRepositoriesByURL:(NSString *)url withCompletion:(void(^)(NSArray *requests, NSError *error))completion {
     
-    [_RESTClient getJSONByURL:url withCompletion:^(NSString *responce, NSError *error) {
+    [_RESTClient getJSONByURL:url withCompletion:^(NSData *responce, NSError *error) {
         
         if (error) {
             completion(nil, error);
         } else {
-            completion([self p_parseJSON:responce], nil);
+            
+            NSArray *json = [self p_parseJSONResults:responce];
+            if (![json count]) {
+                completion(nil, [NSError errorWithDomain:@"me.evseev.githubclient" code:2 userInfo:[NSDictionary new]]);
+                return ;
+            }
+            
+            completion([self p_formatAsDataItems:json], nil);
         }
         
     }];
@@ -75,9 +83,29 @@
 
 #pragma mark - private methods
 
-- (NSArray *)p_parseJSON:(NSString *)string {
+- (NSArray *)p_formatAsDataItems:(NSArray *)data {
     
-    return [NSArray new];
+    NSMutableArray *dataItems = [NSMutableArray new];
+    
+    for(NSDictionary *item in data) {
+        
+        SEGithubDataItem *dataItem = [SEGithubDataItem new];
+        dataItem.title = [item objectForKey:@"name"];
+        dataItem.link = [item objectForKey:@"clone_url"];
+        [dataItems addObject:dataItem];
+        
+    }
+    return dataItems;
+}
+
+- (NSArray *)p_parseJSONResults:(NSData *)jsonData {
+    
+    NSArray *jsonArray = nil;
+    if ([jsonData isKindOfClass:[NSData class]]) {
+        jsonArray =  [NSJSONSerialization JSONObjectWithData:jsonData options: NSJSONReadingMutableContainers error:nil];
+    }
+    
+    return jsonArray;
     
 }
 
