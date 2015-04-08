@@ -67,6 +67,7 @@
     if ([self.delegate respondsToSelector:@selector(didSelectRowWithData:)]) {
         [self.delegate didSelectRowWithData:[_resources objectAtIndex:indexPath.row]];
     }
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
 }
 

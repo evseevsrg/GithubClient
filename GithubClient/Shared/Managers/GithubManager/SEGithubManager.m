@@ -41,12 +41,17 @@
         } else {
             
             NSArray *json = [self p_parseJSONResults:responce];
-            if (![json count]) {
-                completion(nil, [NSError errorWithDomain:@"me.evseev.githubclient" code:2 userInfo:[NSDictionary new]]);
-                return ;
-            }
             
-            completion([self p_formatAsDataItems:json], nil);
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                
+                if (![json count]) {
+                    completion(nil, [NSError errorWithDomain:@"me.evseev.githubclient" code:2 userInfo:[NSDictionary new]]);
+                } else {
+                    completion([self p_formatAsDataItems:json], nil);
+                }
+                
+            });
+            
         }
         
     }];
@@ -101,8 +106,16 @@
 - (NSArray *)p_parseJSONResults:(NSData *)jsonData {
     
     NSArray *jsonArray = nil;
+    NSError *error = nil;
+    
     if ([jsonData isKindOfClass:[NSData class]]) {
-        jsonArray =  [NSJSONSerialization JSONObjectWithData:jsonData options: NSJSONReadingMutableContainers error:nil];
+        jsonArray =  [NSJSONSerialization JSONObjectWithData:jsonData options: NSJSONReadingMutableContainers error:&error];
+    }
+    
+    if (error) {
+        
+        NSLog(@"%@", [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding]);
+        
     }
     
     return jsonArray;

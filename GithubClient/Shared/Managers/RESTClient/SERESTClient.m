@@ -7,12 +7,12 @@
 //
 
 #import "SERESTClient.h"
+#import "SEResponseItem.h"
 
 
 @interface SERESTClient () <NSURLSessionDataDelegate> {
     
     NSTimeInterval _timeoutInterval;
-    NSMutableDictionary *_completionBlocks;
     
 }
 
@@ -28,8 +28,7 @@
     
     if (self = [super init]) {
         
-        _timeoutInterval = 5.0;
-        _completionBlocks = [NSMutableDictionary new];
+        _timeoutInterval = 15.0;
         [self p_initSession];
         
     }
@@ -38,45 +37,14 @@
 
 
 - (void)getJSONByURL:(NSString *)url withCompletion:(void (^)(NSData *, NSError *))completion {
-    
+
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:_timeoutInterval];
     
-    NSURLSessionDataTask *task = [self.session dataTaskWithRequest:request];
-    [task resume];
-    [_completionBlocks setObject:completion forKey:@(task.taskIdentifier)];
-    
-}
-
-
-#pragma mark - NSURLSessionDelegate
-
-- (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveData:(NSData *)data {
-    
-    void (^completion)(NSData *responce, NSError *error) = [_completionBlocks objectForKey:@(dataTask.taskIdentifier)];
-    
-    if (completion) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            completion(data, nil);
-        });
-    }
-    
-    [_completionBlocks removeObjectForKey:@(dataTask.taskIdentifier)];
-
-}
-
-
-- (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didCompleteWithError:(NSError *)error {
-    
-    if (!error)
-        return ;
-
-    void (^completion)(NSData *responce, NSError *error) = [_completionBlocks objectForKey:@(task.taskIdentifier)];
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        completion(nil, [NSError errorWithDomain:@"me.evseev.githubclient" code:1 userInfo:[NSDictionary new]]);
-    });
-    
-    [_completionBlocks removeObjectForKey:@(task.taskIdentifier)];
+    [[self.session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        
+        completion(data, error);
+        
+    }] resume];
     
 }
 
@@ -85,7 +53,7 @@
 
 - (void)p_initSession {
     
-    self.session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration backgroundSessionConfigurationWithIdentifier:@"me.evseev.githubclient"] delegate:self delegateQueue:nil];
+    self.session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
     
 }
 

@@ -74,12 +74,20 @@
     if ([self.delegate respondsToSelector:@selector(didSelectRowWithData:)]) {
         [self.delegate didSelectRowWithData:[_resources objectAtIndex:indexPath.row]];
     }
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
 }
 
 #pragma mark - UITableViewDelegate
 
 #pragma mark - private methods
+
+- (void)p_updateTableWithData:(NSArray *)data {
+    
+    _resources = [NSMutableArray arrayWithArray:data];
+    [_tableView reloadData];
+    
+}
 
 - (void)p_initResources {
     
@@ -89,7 +97,7 @@
         
         [self p_stopLoadingData];
         if (error == nil) {
-            
+            [self p_updateTableWithData:requests];
         } else {
             // handle errors
             NSLog(@"error loading data");
