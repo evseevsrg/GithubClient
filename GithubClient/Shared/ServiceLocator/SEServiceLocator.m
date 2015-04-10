@@ -39,7 +39,7 @@
 - (id <SEGithubManagerProtocol>)githubManager {
     
     if (_githubManager == nil) {
-        _githubManager = [[SEGithubManager alloc] initWithRESTClient:_RESTClient];
+        _githubManager = [[SEGithubManager alloc] initWithRESTClient:_RESTClient andURL:@"https://api.github.com"];
     }
     
     return _githubManager;

@@ -25,6 +25,6 @@
 @property (nonatomic, weak) UITableView *tableView;
 @property (nonatomic, weak) id <SEMainViewDataSourceProtocol> delegate;
 
-- (instancetype)initWithGithubManager:(id <SEGithubManagerProtocol>)githubManager;
+- (void)setGithubManager:(id<SEGithubManagerProtocol>)githubManager;
 
 @end

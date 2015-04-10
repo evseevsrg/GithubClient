@@ -37,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		044680DE1AD6AD5B0000DE3F /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		044680E01AD6AE450000DE3F /* Enums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Enums.h; sourceTree = "<group>"; };
 		8CBFB0741AD075B900D7B604 /* GithubClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CBFB0781AD075B900D7B604 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8CBFB0791AD075B900D7B604 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -96,6 +98,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		044680DF1AD6AE2D0000DE3F /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				044680E01AD6AE450000DE3F /* Enums.h */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
 		8CBFB06B1AD075B900D7B604 = {
 			isa = PBXGroup;
 			children = (
@@ -157,6 +167,7 @@
 		8CBFB09D1AD079A700D7B604 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				044680DF1AD6AE2D0000DE3F /* Enums */,
 				8CBFB0CA1AD132BC00D7B604 /* DataItems */,
 				8CBFB0BF1AD093C300D7B604 /* DataSources */,
 				8CBFB0B71AD0849D00D7B604 /* Constants */,
@@ -250,6 +261,7 @@
 			isa = PBXGroup;
 			children = (
 				8CBFB0B91AD0854800D7B604 /* SESegueID.h */,
+				044680DE1AD6AD5B0000DE3F /* Constants.h */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -628,6 +640,7 @@
 				8CBFB0991AD075BA00D7B604 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8CBFB09A1AD075BA00D7B604 /* Build configuration list for PBXNativeTarget "GithubClientTests" */ = {
 			isa = XCConfigurationList;
@@ -636,6 +649,7 @@
 				8CBFB09C1AD075BA00D7B604 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

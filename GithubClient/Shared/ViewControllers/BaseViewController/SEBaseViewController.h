@@ -11,4 +11,6 @@
 
 @interface SEBaseViewController : UIViewController <SEBaseViewControllerProtocol>
 
+- (void)showAlertWithError:(NSError *)error;
+
 @end

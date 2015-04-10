@@ -11,6 +11,5 @@
 
 @interface SEGithubDataItem : NSObject <SEDataItemProtocol>
 
-- (instancetype)initWithDictionary:(NSDictionary *)data;
 
 @end

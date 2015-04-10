@@ -7,6 +7,8 @@
 //
 
 #import "SEMainViewDataSource.h"
+#import "SEBaseViewController.h"
+
 #import "SEDataItemProtocol.h"
 
 @interface SEMainViewDataSource () {
@@ -21,16 +23,21 @@
 
 @implementation SEMainViewDataSource
 
-- (instancetype)initWithGithubManager:(id <SEGithubManagerProtocol>)githubManager {
+- (instancetype)init {
     
     if (self = [super init]) {
-        _githubManager = githubManager;
-        [self p_initResources];
+        
     }
     return self;
     
 }
 
+- (void)setGithubManager:(id<SEGithubManagerProtocol>)githubManager {
+    
+    _githubManager = githubManager;
+    [self p_initResources];
+    
+}
 
 #pragma mark - UITableViewDataSource
 
@@ -90,8 +97,9 @@
         if (error == nil) {
             [self p_updateTableWithData:requests];
         } else {
-            // handle errors
-            // no errors, return hardcoded data
+            if ([self.delegate isKindOfClass:[SEBaseViewController class]]) {
+                [(SEBaseViewController *)self.delegate showAlertWithError:error];
+            }
         }
         
     }];

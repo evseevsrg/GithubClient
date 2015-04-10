@@ -8,6 +8,8 @@
 
 #import "SEGithubManager.h"
 #import "SEGithubDataItem.h"
+#import "Constants.h"
+#import "Enums.h"
 
 #import "SERESTClientProtocol.h"
 
@@ -15,6 +17,7 @@
 @interface SEGithubManager () {
     
     id <SERESTClientProtocol> _RESTClient;
+    NSString *_url;
     
 }
 
@@ -23,29 +26,66 @@
 
 @implementation SEGithubManager
 
-- (instancetype)initWithRESTClient:(id <SERESTClientProtocol>)RESTClient {
+- (instancetype)initWithRESTClient:(id <SERESTClientProtocol>)RESTClient andURL:(NSString *)url {
     
     if (self = [super init]) {
         _RESTClient = RESTClient;
+        _url = url;
     }
     return self;
 }
 
 
-- (void)getListOfRepositoriesByURL:(NSString *)url withCompletion:(void(^)(NSArray *requests, NSError *error))completion {
+- (void)getLanguagesInfoByRepo:(NSString *)repo andUser:(NSString *)user withCompletion:(void(^)(NSArray *requests, NSError *error))completion {
     
-    [_RESTClient getJSONByURL:url withCompletion:^(NSData *responce, NSError *error) {
+    NSString *requestURL = [NSString stringWithFormat:@"%@/repos/%@/%@/languages", _url, user, repo];
+    
+    [_RESTClient getJSONByURL:requestURL withCompletion:^(NSData *response, NSError *error) {
         
         if (error) {
-            completion(nil, error);
+            
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                completion(nil, [NSError errorWithDomain:kErrorDomain code:RESTErrorDownloading userInfo:[NSDictionary new]]);
+            });
+            
         } else {
             
-            NSArray *json = [self p_parseJSONResults:responce];
+            NSArray *json = [self p_parseJSONResults:response];
             
             dispatch_sync(dispatch_get_main_queue(), ^{
                 
                 if (![json count]) {
-                    completion(nil, [NSError errorWithDomain:@"me.evseev.githubclient" code:2 userInfo:[NSDictionary new]]);
+                    completion(nil, [NSError errorWithDomain:kErrorDomain code:RESTErrorNoData userInfo:[NSDictionary new]]);
+                } else {
+                    completion(json, nil);
+                }
+                
+            });
+            
+        }
+        
+    }];
+    
+}
+
+- (void)getListOfRepositoriesByURL:(NSString *)url withCompletion:(void(^)(NSArray *requests, NSError *error))completion {
+    
+    [_RESTClient getJSONByURL:url withCompletion:^(NSData *response, NSError *error) {
+        
+        if (error) {
+            
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                completion(nil, [NSError errorWithDomain:kErrorDomain code:RESTErrorDownloading userInfo:[NSDictionary new]]);
+            });
+            
+        } else {
+            
+            NSArray *json = [self p_parseJSONResults:response];
+            
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                
+                if (![json count]) {
+                    completion(nil, [NSError errorWithDomain:kErrorDomain code:RESTErrorNoData userInfo:[NSDictionary new]]);
                 } else {
                     completion([self p_formatAsDataItems:json], nil);
                 }
@@ -63,21 +103,24 @@
     // return hardcoded dictionary, because there is no request to get list of requests without auth
     
     NSArray *initRequestsData = @[@{@"title": @"Google repos",
-                                    @"link": @"https://api.github.com/users/google/repos"},
+                                    @"user": @"google"},
                                   @{@"title": @"Facebook repos",
-                                    @"link": @"https://api.github.com/users/facebook/repos"},
+                                    @"user": @"facebook"},
                                   @{@"title": @"Twitter repos",
-                                    @"link": @"https://api.github.com/users/twitter/repos"},
+                                    @"user": @"twitter"},
                                   @{@"title": @"Microsoft repos",
-                                    @"link": @"https://api.github.com/users/microsoft/repos"},
+                                    @"user": @"microsoft"},
                                   @{@"title": @"Yandex repos",
-                                    @"link": @"https://api.github.com/users/yandex/repos"}
+                                    @"user": @"yandex"},
                                   ];
     
     NSMutableArray *requests = [NSMutableArray new];
     
     for(NSDictionary *item in initRequestsData) {
-        SEGithubDataItem *githubItem = [[SEGithubDataItem alloc] initWithDictionary:item];
+        SEGithubDataItem *githubItem = [[SEGithubDataItem alloc] init];
+        githubItem.title = [item objectForKey:@"title"];
+        githubItem.user = [item objectForKey:@"user"];
+        githubItem.link = [NSString stringWithFormat:@"%@/users/%@/repos", _url, githubItem.user];
         [requests addObject:githubItem];
     }
     
@@ -96,7 +139,10 @@
         
         SEGithubDataItem *dataItem = [SEGithubDataItem new];
         dataItem.title = [item objectForKey:@"name"];
-        dataItem.link = [item objectForKey:@"clone_url"];
+        if (![[item objectForKey:@"description"] isKindOfClass:[NSNull class]])
+            dataItem.subtitle = [item objectForKey:@"description"];
+        dataItem.user = [[item objectForKey:@"owner"] objectForKey:@"login"];
+        dataItem.repo = [item objectForKey:@"name"];
         [dataItems addObject:dataItem];
         
     }
@@ -110,12 +156,6 @@
     
     if ([jsonData isKindOfClass:[NSData class]]) {
         jsonArray =  [NSJSONSerialization JSONObjectWithData:jsonData options: NSJSONReadingMutableContainers error:&error];
-    }
-    
-    if (error) {
-        
-        NSLog(@"%@", [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding]);
-        
     }
     
     return jsonArray;

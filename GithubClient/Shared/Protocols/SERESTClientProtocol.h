@@ -11,6 +11,6 @@
 
 @protocol SERESTClientProtocol <NSObject>
 
-- (void)getJSONByURL:(NSString *)url withCompletion:(void(^)(NSData *responce, NSError *error)) completion;
+- (void)getJSONByURL:(NSString *)url withCompletion:(void(^)(NSData *response, NSError *error)) completion;
 
 @end

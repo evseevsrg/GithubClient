@@ -79,9 +79,10 @@
 
 - (void)p_initDataSource {
     
-    _dataSource = [[SEMainViewDataSource alloc] initWithGithubManager:[self.serviceLocator githubManager]];
+    _dataSource = [[SEMainViewDataSource alloc] init];
     _dataSource.tableView = _tableView;
     _dataSource.delegate = self;
+    [_dataSource setGithubManager:[self.serviceLocator githubManager]];
     
     _tableView.dataSource = _dataSource;
     _tableView.delegate = _dataSource;

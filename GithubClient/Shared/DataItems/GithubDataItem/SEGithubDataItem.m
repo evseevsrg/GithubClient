@@ -18,26 +18,18 @@
 @implementation SEGithubDataItem
 
 @synthesize title = _title;
+@synthesize subtitle = _subtitle;
+@synthesize user = _user;
+@synthesize repo = _repo;
 @synthesize link = _link;
 
-- (instancetype)initWithDictionary:(NSDictionary *)data {
+- (instancetype)init {
     
     if (self = [super init]) {
-        _title = [data objectForKey:@"title"];
-        _link = [data objectForKey:@"link"];
+
     }
     
     return self;
-}
-
-#pragma mark - SEDataItemProtocol
-
-- (NSString *)getTitle {
-    return _title;
-}
-
-- (NSString *)getURL {
-    return _link;
 }
 
 @end

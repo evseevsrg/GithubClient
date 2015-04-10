@@ -11,6 +11,9 @@
 @protocol SEDataItemProtocol <NSObject>
 
 @property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy) NSString *subtitle;
+@property (nonatomic, copy) NSString *user;
+@property (nonatomic, copy) NSString *repo;
 @property (nonatomic, copy) NSString *link;
 
 @end

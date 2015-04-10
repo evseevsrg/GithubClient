@@ -38,4 +38,19 @@
     
 }
 
+
+- (void)showAlertWithError:(NSError *)error {
+    
+    if (!error)
+        return ;
+    
+    NSString *message = [NSString stringWithFormat:@"ErrorCode: %li", (long)error.code];
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:message preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {}];
+    [alert addAction:defaultAction];
+    [self presentViewController:alert animated:YES completion:nil];
+    
+}
+
 @end

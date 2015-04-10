@@ -12,8 +12,9 @@
 
 @protocol SEGithubManagerProtocol <NSObject>
 
-- (instancetype)initWithRESTClient:(id <SERESTClientProtocol>)RESTClient;
+- (instancetype)initWithRESTClient:(id <SERESTClientProtocol>)RESTClient andURL:(NSString *)url;
 - (void)getListOfRepos:(void(^)(NSArray *requests, NSError *error))completion;
 - (void)getListOfRepositoriesByURL:(NSString *)url withCompletion:(void(^)(NSArray *requests, NSError *error))completion;
+- (void)getLanguagesInfoByRepo:(NSString *)repo andUser:(NSString *)user withCompletion:(void (^)(NSArray *requests, NSError *error))completion;
 
 @end

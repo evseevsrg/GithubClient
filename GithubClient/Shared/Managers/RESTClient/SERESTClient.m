@@ -7,8 +7,6 @@
 //
 
 #import "SERESTClient.h"
-#import "SEResponseItem.h"
-
 
 @interface SERESTClient () <NSURLSessionDataDelegate> {
     
